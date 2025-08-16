@@ -9,14 +9,19 @@ export function HomeNavbar() {
         <Stack
           sx={{ height: "50px" }}
           flexDirection={"row"}
-          justifyContent={"space-between"}
+          justifyContent={"start"}
           alignItems={"center"}
         >
           <Box>
             <NavLink to="/">
               <img
-                style={{ width: "125px", height: "30px", borderRadius: "20px" }}
-                src="/icons/banner_ici.webp"
+                style={{
+                  width: "150px",
+                  height: "38px",
+                  borderRadius: "5px 0px 0px 5px",
+                  marginTop: "7px",
+                }}
+                src="/icons/bannerr.webp"
               />
             </NavLink>
           </Box>
@@ -61,9 +66,10 @@ export function HomeNavbar() {
               </Box>
             ) : (
               <img
-                className="user-avatar"
                 src={"/icons/default-user.svg"}
                 aria-haspopup={"true"}
+                width={"40px"}
+                height={"40px"}
               />
             )}
           </Stack>
