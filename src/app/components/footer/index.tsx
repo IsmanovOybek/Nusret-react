@@ -12,16 +12,14 @@ const Footers = styled.div`
 `;
 
 export default function Footer() {
-  const authMember = null;
+  const authMember = true;
 
   return (
     <Footers>
       <Container>
         <Stack flexDirection={"row"} sx={{ mt: "94px" }}>
           <Stack flexDirection={"column"} style={{ width: "340px" }}>
-            {/* <Box>
-              <img width={"100px"} src={"/icons/burak.svg"} />
-            </Box> */}
+           
             <Box className={"foot-desc-txt"}>
               By bringing together books and youth, the library aims to revive
               the culture of reading. It may seem quiet from the outside, yet
@@ -37,7 +35,7 @@ export default function Footer() {
           <Stack sx={{ ml: "288px" }} flexDirection={"row"}>
             <Stack>
               <Box>
-                <Box className={"foot-category-title"}>Bo'limlar</Box>
+                <Box className={"foot-category-title"}>Sections</Box>
                 <Box className={"foot-category-link"}>
                   <Link to="/">Home</Link>
                   <Link to="/products">Products</Link>
