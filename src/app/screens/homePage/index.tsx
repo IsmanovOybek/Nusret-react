@@ -1,5 +1,11 @@
 import { Container } from "@mui/material";
+import NewBooks from "./NewBooks";
+import "../../../css/home.css";
 
-export function HomePage() {
-  return <Container>HomePage</Container>;
+export default function HomePage() {
+  return (
+    <div className={"homepage"}>
+      <NewBooks />
+    </div>
+  );
 }

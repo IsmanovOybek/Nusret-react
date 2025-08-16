@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
 
 export function HomeNavbar() {
-  const authMember = null;
+  const authMember = true;
   return (
     <div className="home-navbar">
       <Container sx={{ mt: "55px", height: "642px" }}>
@@ -18,7 +18,7 @@ export function HomeNavbar() {
               <img
                 style={{
                   width: "150px",
-                  height: "36px",
+                  height: "34px",
                   borderRadius: "5px 0px 0px 5px",
                   marginTop: "7px",
                 }}
@@ -57,7 +57,7 @@ export function HomeNavbar() {
                 Help
               </NavLink>
             </Box>
-            <Basket/> 
+            <Basket />
 
             {!authMember ? (
               <Box>
@@ -69,8 +69,8 @@ export function HomeNavbar() {
               <img
                 src={"/icons/default-user.svg"}
                 aria-haspopup={"true"}
-                width={"40px"}
-                height={"40px"}
+                width={"35px"}
+                height={"35px"}
               />
             )}
           </Stack>

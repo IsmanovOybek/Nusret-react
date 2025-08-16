@@ -6,14 +6,14 @@ import { Link, Route, Switch, useLocation } from "react-router-dom";
 import { ProductsPage } from "./app/screens/productsPage";
 import { OrdersPage } from "./app/screens/ordersPage";
 import { UserPage } from "./app/screens/userPage";
-import { HomePage } from "./app/screens/homePage";
 import { HomeNavbar } from "./app/components/headers/HomeNavbar";
 import { OtherNavbar } from "./app/components/headers/OtherNavbar";
 import Footer from "./app/components/footer";
-import { HelpPage } from "./app/screens/helpPage";
 import "./css/app.css";
 import "./css/navbar.css";
 import "./css/footer.css";
+import HelpPage from "./app/screens/helpPage";
+import HomePage from "./app/screens/homePage";
 
 function App() {
   const location = useLocation();
