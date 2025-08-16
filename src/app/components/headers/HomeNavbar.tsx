@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
 
 export function HomeNavbar() {
-  const authMember = true;
+  const authMember = null;
   return (
     <div className="home-navbar">
       <Container sx={{ mt: "55px", height: "642px" }}>
@@ -18,7 +18,7 @@ export function HomeNavbar() {
               <img
                 style={{
                   width: "150px",
-                  height: "38px",
+                  height: "36px",
                   borderRadius: "5px 0px 0px 5px",
                   marginTop: "7px",
                 }}

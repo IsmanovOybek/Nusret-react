@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
 
 export function OtherNavbar() {
-  const authMember = true;
+  const authMember = null;
   return (
     <div className="other-navbar">
       <Container className="navbar-container">
@@ -13,7 +13,7 @@ export function OtherNavbar() {
               <img
                 style={{
                   width: "150px",
-                  height: "38px",
+                  height: "36px",
                   borderRadius: "5px 0px 0px 5px",
                   marginTop: "7px",
                 }}
