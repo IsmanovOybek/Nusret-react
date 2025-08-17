@@ -15,7 +15,7 @@ const newDishes = [
   { productName: "Men", imagePath: "/img/men.webp" },
 ];
 
-export default function NewDishes() {
+export default function NewBooks() {
   return (
     <div className={"new-products-frame"}>
       <Container>
