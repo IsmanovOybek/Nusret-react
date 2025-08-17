@@ -5,6 +5,7 @@ import Statistics from "./Statistics";
 import PopularBooks from "./PopularBooks";
 import Advertisement from "./Advertisement";
 import ActiveUsers from "./ActiveUsers";
+import Events from "./Events";
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
       <PopularBooks />
       <Advertisement />
       <ActiveUsers />
+      <Events />
     </div>
   );
 }
