@@ -68,11 +68,14 @@ export default function PopularBooks() {
                           px: "var(--Card-padding)",
                           borderTop: "1px solid",
                           height: "60px",
+                          background: "#b9b9c2"
                         }}
+                        
                       >
                         <Typography
                           startDecorator={<DescriptionOutlinedIcon />}
                           textColor="neutral.300"
+                          
                         >
                           This is world popular books
                         </Typography>

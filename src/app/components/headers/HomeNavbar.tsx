@@ -69,7 +69,7 @@ export function HomeNavbar() {
               <img
                 src={"/icons/default-user.svg"}
                 aria-haspopup={"true"}
-                width={"35px"}
+                width={"34px"}
                 height={"35px"}
               />
             )}

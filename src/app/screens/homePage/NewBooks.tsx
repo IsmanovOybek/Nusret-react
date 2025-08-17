@@ -43,9 +43,11 @@ export default function NewBooks() {
                             </Typography>
                             <Divider width="2" height="24" bg="#d9d9d9" />
                             <Typography className="price">$54</Typography>
-                          </Stack>
-
+                            
+                          </Stack>  
                           <Stack>
+
+                          
                             <Typography className="views">
                               99
                               <VisibilityIcon
