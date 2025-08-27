@@ -38,7 +38,6 @@ export default function NewBooks() {
                   return (
                     <Card key={product._id} variant="outlined" className={"card"}>
                       <CardOverflow className="product-sale1">
-                        <div className="product-sale">Prime</div>
                         <div className="product-sale2">{sizeVolume}</div>
                         <AspectRatio ratio="1">
                           <img src={imagePath} alt="" />

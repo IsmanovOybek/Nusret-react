@@ -20,6 +20,19 @@ class MemberService {
       throw err;
     }
   }
+  public async getLibruary(): Promise<Member> {
+    try {
+      const url = this.path + "/member/libruary";
+      const result = await axios.get(url);
+      console.log("getLibruary:", result);
+
+      const restaurant: Member = result.data;
+      return restaurant;
+    } catch (err) {
+      console.log("Error, getLibruary:", err);
+      throw err;
+    }
+  }
 }
 
 export default MemberService;
