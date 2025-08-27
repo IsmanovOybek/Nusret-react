@@ -14,7 +14,6 @@ import { retrievePopularBooks } from "./selector";
 import { useSelector } from "react-redux";
 import { Product } from "../../../libs/types/product";
 import { serverApi } from "../../../libs/config";
-import { ProductCollection } from "../../../libs/enums/product.enum";
 
 const popularBooksRetriever = createSelector(
   retrievePopularBooks,
