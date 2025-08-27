@@ -7,7 +7,7 @@ export interface AppRootState {
 }
 /* homepage* */
 export interface HomePageState {
-  NewBooks: Product[];
+  newBooks: Product[];
   popularBooks: Product[];
   readerRankings: Member[];
 }

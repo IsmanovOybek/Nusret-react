@@ -8,14 +8,19 @@ import Typography from "@mui/joy/Typography";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import Divider from "../../components/divider";
 
-const newDishes = [
-  { productName: "Animal”", imagePath: "/img/animalll.webp" },
-  { productName: "Atomic ", imagePath: "/img/atomic.webp" },
-  { productName: "History", imagePath: "/img/muqaddima.webp" },
-  { productName: "Men", imagePath: "/img/men.webp" },
-];
+import { createSelector } from "reselect";
+import { retrieveNewBooks } from "./selector";
+import { useSelector } from "react-redux";
+import { Product } from "../../../libs/types/product";
+import { serverApi } from "../../../libs/config";
+import { ProductCollection } from "../../../libs/enums/product.enum";
+
+const newBooksRetriever = createSelector(retrieveNewBooks, (newBooks) => ({
+  newBooks
+}));
 
 export default function NewBooks() {
+  const {newBooks} = useSelector(newBooksRetriever)
   return (
     <div className={"new-products-frame"}>
       <Container>
@@ -23,15 +28,20 @@ export default function NewBooks() {
           <Box className={"category-title"}>New Books</Box>
           <Stack className={"cards-frame"}>
             <CssVarsProvider>
-              {newDishes.length !== 0 ? (
-                newDishes.map((ele, index) => {
+              {newBooks.length !== 0 ? (
+                newBooks.map((product: Product) => {
+                  const imagePath = `${serverApi}/${product.productImages[0]}`;
+                  const sizeVolume =
+                  product.productCollection === ProductCollection.HISTORY
+                    ? product.productVolume
+                    : product.productSize ;
                   return (
-                    <Card key={index} variant="outlined" className={"card"}>
+                    <Card key={product._id} variant="outlined" className={"card"}>
                       <CardOverflow className="product-sale1">
                         <div className="product-sale">Prime</div>
-                        <div className="product-sale2">Normal size</div>
+                        <div className="product-sale2">{sizeVolume}</div>
                         <AspectRatio ratio="1">
-                          <img src={ele.imagePath} alt="" />
+                          <img src={imagePath} alt="" />
                         </AspectRatio>
                       </CardOverflow>
 
@@ -39,17 +49,14 @@ export default function NewBooks() {
                         <Stack className="info">
                           <Stack flexDirection="row">
                             <Typography className="title">
-                              {ele.productName}
+                              {product.productName}
                             </Typography>
                             <Divider width="2" height="24" bg="#d9d9d9" />
-                            <Typography className="price">$54</Typography>
-                            
-                          </Stack>  
+                            <Typography className="price">${product.productPrice}</Typography>
+                          </Stack>
                           <Stack>
-
-                          
                             <Typography className="views">
-                              99
+                            {product.productViews}
                               <VisibilityIcon
                                 sx={{ fontSize: 20, marginLeft: "5px" }}
                               />
