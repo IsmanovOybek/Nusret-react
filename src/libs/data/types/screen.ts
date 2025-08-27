@@ -7,8 +7,8 @@ export interface AppRootState {
 }
 /* homepage* */
 export interface HomePageState {
-  popularDishes: Product[];
-  newDishes: Product[];
-  topUsers: Member[];
+  NewBooks: Product[];
+  popularBooks: Product[];
+  readerRankings: Member[];
 }
 /* orderpage* */
