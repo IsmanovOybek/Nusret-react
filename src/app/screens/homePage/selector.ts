@@ -8,7 +8,7 @@ export const retrieveNewBooks = createSelector(
   (HomePage) => HomePage.newBooks
 );
 
-export const retrievePopularDishes = createSelector(
+export const retrievePopularBooks = createSelector(
   selectHomePage,
   (HomePage) => HomePage.popularBooks
 );

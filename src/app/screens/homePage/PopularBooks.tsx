@@ -9,27 +9,36 @@ import CardOverflow from "@mui/joy/CardOverflow";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 
-const list = [
-  { productName: "Bygone days", imagePath: "/img/Bygone_Days.webp" },
-  { productName: "Harry Poter ", imagePath: "/img/harry.webp" },
-  { productName: "Men", imagePath: "/img/men.webp" },
-  { productName: "Wadow", imagePath: "/img/shadow.webp" },
-];
+import { createSelector } from "reselect";
+import { retrievePopularBooks } from "./selector";
+import { useSelector } from "react-redux";
+import { Product } from "../../../libs/types/product";
+import { serverApi } from "../../../libs/config";
+import { ProductCollection } from "../../../libs/enums/product.enum";
+
+const popularBooksRetriever = createSelector(
+  retrievePopularBooks,
+  (popularBooks) => ({
+    popularBooks,
+  })
+);
 
 export default function PopularBooks() {
+  const { popularBooks } = useSelector(popularBooksRetriever);
   return (
     <div className="popular-dishes-frame">
       <Container>
         <Stack className="popular-section">
           <Box className="category-title">Popular Books</Box>
           <Stack className="cards-frame">
-            {list.length !== 0 ? (
-              list.map((ele, index) => {
+            {popularBooks.length !== 0 ? (
+              popularBooks.map((product: Product) => {
+                const imagePath = `${serverApi}/${product.productImages[0]}`;
                 return (
-                  <CssVarsProvider key={index}>
+                  <CssVarsProvider key={product._id}>
                     <Card className={"card"}>
                       <CardCover>
-                        <img src={ele.imagePath} alt="" />
+                        <img src={imagePath} alt="" />
                       </CardCover>
                       <CardCover className={"card-cover"} />
                       <CardContent sx={{ justifyContent: "flex-end" }}>
@@ -43,7 +52,7 @@ export default function PopularBooks() {
                             textColor="#fff"
                             mb={1}
                           >
-                            {ele.productName}
+                            {product.productName}
                           </Typography>
                           <Typography
                             sx={{
@@ -53,7 +62,7 @@ export default function PopularBooks() {
                               display: "flex",
                             }}
                           >
-                            399
+                            {product.productViews}
                             <VisibilityIcon
                               sx={{ fontSize: 25, marginLeft: "5px" }}
                             />
@@ -68,16 +77,14 @@ export default function PopularBooks() {
                           px: "var(--Card-padding)",
                           borderTop: "1px solid",
                           height: "60px",
-                          background: "#b9b9c2"
+                          background: "#b9b9c2",
                         }}
-                        
                       >
                         <Typography
                           startDecorator={<DescriptionOutlinedIcon />}
                           textColor="neutral.300"
-                          
                         >
-                          This is world popular books
+                          {product.productDesc}
                         </Typography>
                       </CardOverflow>
                     </Card>
