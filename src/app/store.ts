@@ -10,6 +10,7 @@ export const store = configureStore({
   reducer: {
     homePage: HomePageReducer, // buyerda faqat bog'landi
     productsPage: ProductsPageReducer,
+    ordersPage: HomePageReducer,
   },
 });
 
