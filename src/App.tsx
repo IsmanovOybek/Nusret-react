@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./css/app.css";
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import { RippleBadge } from "../src/MaterialTheme/styled";
@@ -16,11 +16,20 @@ import ProductsPage from "./app/screens/productsPage";
 import OrdersPage from "./app/screens/ordersPage";
 import UserPage from "./app/screens/userPage";
 import useBasket from "./app/hooks/useBasket";
+import AuthenticationModal from "./app/components/auth";
 
 function App() {
   const location = useLocation();
   console.log("location:", location);
   const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = useBasket();
+  
+  const [signupOpen, setSignupOpen] = useState<boolean>(false);
+  const [loginOpen, setLoginOpen] = useState<boolean>(false);
+
+  /** Handler */
+
+  const handleSignupClose = () => setSignupOpen(false);
+  const handleLoginClose = () => setLoginOpen(false);
 
   return (
     <>
@@ -31,6 +40,8 @@ function App() {
           onRemove={onRemove}
           onDelete={onDelete}
           onDeleteAll={onDeleteAll}
+          setSignupOpen={setSignupOpen}
+          setLoginOpen={setLoginOpen}
         />
       ) : (
         <OtherNavbar
@@ -39,6 +50,8 @@ function App() {
           onRemove={onRemove}
           onDelete={onDelete}
           onDeleteAll={onDeleteAll}
+          setSignupOpen={setSignupOpen}
+          setLoginOpen={setLoginOpen}
         />
       )}
 
@@ -60,6 +73,12 @@ function App() {
         </Route>
       </Switch>
       <Footer />
+      <AuthenticationModal
+        signupOpen={signupOpen}
+        loginOpen={loginOpen}
+        handleLoginClose={handleLoginClose}
+        handleSignupClose={handleSignupClose}
+      />
     </>
   );
 }
