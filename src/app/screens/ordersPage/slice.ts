@@ -1,30 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ProductPageState } from "../../../libs/types/screen";
+import { OrderPageState } from "../../../libs/types/screen";
 
-const initialState: ProductPageState = {
-  libruary: null,
-  chosenProduct: null,
-  products: [],
+const initialState: OrderPageState = {
+  pausedOrders: [],
+  processOrders: [],
+  finishedOrders: [],
 };
 
-const productPageSlice = createSlice({
-  name: "productPage",
+const ordersPageSlice = createSlice({
+  name: "ordersPage",
   initialState,
   reducers: {
-    setLibruary: (state, action) => {
-      state.libruary = action.payload;
+    setPausedOrders: (state, action) => {
+      state.pausedOrders = action.payload;
     },
-    setChosenProduct: (state, action) => {
-      state.chosenProduct = action.payload;
+    setProcessOrders: (state, action) => {
+      state.processOrders = action.payload;
     },
-    setProducts: (state, action) => {
-      state.products = action.payload;
+    setFinishedOrders: (state, action) => {
+      state.finishedOrders = action.payload;
     },
   },
 });
 
-export const { setLibruary, setChosenProduct, setProducts } =
-  productPageSlice.actions;
+export const { setPausedOrders, setProcessOrders, setFinishedOrders } =
+ordersPageSlice.actions;
 
-const ProductsPageReducer = productPageSlice.reducer;
-export default ProductsPageReducer;
+const OrdersPageReducer = ordersPageSlice.reducer;
+export default OrdersPageReducer;
