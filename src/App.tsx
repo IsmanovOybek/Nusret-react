@@ -17,20 +17,42 @@ import OrdersPage from "./app/screens/ordersPage";
 import UserPage from "./app/screens/userPage";
 import useBasket from "./app/hooks/useBasket";
 import AuthenticationModal from "./app/components/auth";
+import { useGlobals } from "./app/hooks/useGlobals";
+import MemberService from "./app/services/MemberService";
+import { sweetErrorHandling, sweetTopSuccessAlert } from "./libs/sweetAlert";
+import { Messages } from "./libs/config";
 
 function App() {
   const location = useLocation();
   console.log("location:", location);
+  const { setAuthMember } = useGlobals();
   const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = useBasket();
-  
+
   const [signupOpen, setSignupOpen] = useState<boolean>(false);
   const [loginOpen, setLoginOpen] = useState<boolean>(false);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   /** Handler */
 
   const handleSignupClose = () => setSignupOpen(false);
   const handleLoginClose = () => setLoginOpen(false);
 
+  const handleLogoutClick = (e: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(e.currentTarget);
+  };
+  const handleCloceLogout = () => setAnchorEl(null);
+  const handleLogoutRequest = async () => {
+    try {
+      const member = new MemberService();
+      await member.logout();
+
+      await sweetTopSuccessAlert("success", 700);
+      setAuthMember(null);
+    } catch (err) {
+      console.log(err);
+      sweetErrorHandling(Messages.error1);
+    }
+  };
   return (
     <>
       {location.pathname === "/" ? (
@@ -42,6 +64,10 @@ function App() {
           onDeleteAll={onDeleteAll}
           setSignupOpen={setSignupOpen}
           setLoginOpen={setLoginOpen}
+          anchorEl={anchorEl}
+          handleLogoutClick={handleLogoutClick}
+          handleCloceLogout={handleCloceLogout}
+          handleLogoutRequest={handleLogoutRequest}
         />
       ) : (
         <OtherNavbar
@@ -52,12 +78,16 @@ function App() {
           onDeleteAll={onDeleteAll}
           setSignupOpen={setSignupOpen}
           setLoginOpen={setLoginOpen}
+          anchorEl={anchorEl}
+          handleLogoutClick={handleLogoutClick}
+          handleCloceLogout={handleCloceLogout}
+          handleLogoutRequest={handleLogoutRequest}
         />
       )}
 
       <Switch>
         <Route path="/products">
-          <ProductsPage onAdd={onAdd}/>
+          <ProductsPage onAdd={onAdd} />
         </Route>
         <Route path="/orders">
           <OrdersPage />

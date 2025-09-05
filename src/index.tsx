@@ -10,6 +10,7 @@ import theme from "./MaterialTheme";
 import CssBaseline from "@mui/material/CssBaseline";
 import { BrowserRouter as Router } from "react-router-dom";
 import CursorFollower from "./app/cursor";
+import ContextProvider from "./app/context/ContextProvider";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -17,15 +18,18 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Router>
-          <CursorFollower>
-            {" "}
-            <App />
-          </CursorFollower>
-        </Router>
-      </ThemeProvider>
+      <ContextProvider>
+        {" "}
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Router>
+            <CursorFollower>
+              {" "}
+              <App />
+            </CursorFollower>
+          </Router>
+        </ThemeProvider>
+      </ContextProvider>
     </Provider>
   </React.StrictMode>
 );
