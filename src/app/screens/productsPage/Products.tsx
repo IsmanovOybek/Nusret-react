@@ -20,6 +20,7 @@ import { ProductCollection } from "../../../libs/enums/product.enum";
 import { log } from "node:console";
 import { serverApi } from "../../../libs/config";
 import { useHistory } from "react-router-dom";
+import { CartItem } from "../../../libs/types/search";
 
 // redux slice vs selector
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -29,7 +30,12 @@ const productRetriever = createSelector(retrieveProducts, (products) => ({
   products,
 }));
 
-export default function Products() {
+interface ProductProps {
+  onAdd: (item: CartItem) => void;
+}
+
+export default function Products(props: ProductProps) {
+  const { onAdd } = props;
   const { setProducts } = actionDispatch(useDispatch());
   const { products } = useSelector(productRetriever);
   const [productSearch, setProductSearch] = useState<ProductInquiry>({
@@ -256,7 +262,20 @@ export default function Products() {
                       >
                         <div className="product-sale">{sizeVolume}</div>
                         <div className="btn-vs-view">
-                          <Button className="shop-btn">
+                          <Button
+                            className="shop-btn"
+                            onClick={(e) => {
+                              onAdd({
+                                _id: product._id,
+                                quantity: 1,
+                                name: product.productName,
+                                price: product.productPrice,
+                                image: product.productImages[0],
+                              });
+
+                              e.stopPropagation();
+                            }}
+                          >
                             <img
                               className="shop-btn-img"
                               src="/icons/shopping-cart.svg"
@@ -279,15 +298,14 @@ export default function Products() {
                           </Button>
                         </div>
                       </Stack>
-                      <Box className="product-desc">
+                      <Stack className="product-desc">
                         <span className="product-title">
                           {product.productName}
                         </span>
+                      </Stack>
+                      <Box className="product-desck">
                         <div className="product-number">
-                          <MonetizationOnIcon
-                            sx={{ width: "32px", height: "31px" }}
-                          />
-                          {product.productPrice}
+                          $ {product.productPrice}
                         </div>
                       </Box>
                     </Stack>

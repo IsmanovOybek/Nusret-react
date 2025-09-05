@@ -3,9 +3,14 @@ import { Route, Switch, useRouteMatch } from "react-router-dom";
 import { Container } from "@mui/material";
 import Products from "./Products";
 import ChosenProduct from "./ChosenProduct";
+import { CartItem } from "../../../libs/types/search";
 
+interface ProductPageProps {
+    onAdd: (item: CartItem) => void;
+}
 
-export default function ProductsPage() {
+export default function ProductsPage(props: ProductPageProps) {
+    const {onAdd} = props;
     const products = useRouteMatch()
 
 
@@ -13,10 +18,10 @@ export default function ProductsPage() {
         <div className={"products-page"}>
             <Switch>
                 <Route path={`${products.path}/:productId`}>
-                    <ChosenProduct />
+                    <ChosenProduct  onAdd={onAdd}/>
                 </Route>
                 <Route path={`${products.path}`}>
-                    <Products />
+                    <Products onAdd={onAdd} />
                 </Route>
             </Switch>
         </div>

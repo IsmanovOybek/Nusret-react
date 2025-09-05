@@ -15,18 +15,36 @@ import HomePage from "./app/screens/homePage";
 import ProductsPage from "./app/screens/productsPage";
 import OrdersPage from "./app/screens/ordersPage";
 import UserPage from "./app/screens/userPage";
+import useBasket from "./app/hooks/useBasket";
 
 function App() {
   const location = useLocation();
   console.log("location:", location);
+  const { cartItems, onAdd, onRemove, onDelete, onDeleteAll } = useBasket();
 
   return (
     <>
-      {location.pathname === "/" ? <HomeNavbar /> : <OtherNavbar />}
+      {location.pathname === "/" ? (
+        <HomeNavbar
+          cartItems={cartItems}
+          onAdd={onAdd}
+          onRemove={onRemove}
+          onDelete={onDelete}
+          onDeleteAll={onDeleteAll}
+        />
+      ) : (
+        <OtherNavbar
+          cartItems={cartItems}
+          onAdd={onAdd}
+          onRemove={onRemove}
+          onDelete={onDelete}
+          onDeleteAll={onDeleteAll}
+        />
+      )}
 
       <Switch>
         <Route path="/products">
-          <ProductsPage />
+          <ProductsPage onAdd={onAdd}/>
         </Route>
         <Route path="/orders">
           <OrdersPage />
@@ -38,7 +56,7 @@ function App() {
           <HelpPage />
         </Route>
         <Route path="/">
-          <HomePage />
+          <HomePage onAdd={onAdd} />
         </Route>
       </Switch>
       <Footer />

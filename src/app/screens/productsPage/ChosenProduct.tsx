@@ -23,6 +23,7 @@ import ProductService from "../../services/ProductService";
 import { Member } from "../../../libs/types/member";
 import MemberService from "../../services/MemberService";
 import { serverApi } from "../../../libs/config";
+import { CartItem } from "../../../libs/types/search";
 
 // redux slice vs selector
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -35,18 +36,19 @@ const chosenProductRetriever = createSelector(
     chosenProduct,
   })
 );
-const libruaryRetriever = createSelector(
-  retrieveLibruary,
-  (libruary) => ({
-    libruary,
-  })
-);
+const libruaryRetriever = createSelector(retrieveLibruary, (libruary) => ({
+  libruary,
+}));
+interface ChosenProductProps {
+  onAdd: (item: CartItem) => void;
+}
 
-export default function ChosenProduct() {
+export default function ChosenProduct(props: ChosenProductProps) {
+  const { onAdd } = props;
   const { productId } = useParams<{ productId: string }>();
   const { setLibruary, setChosenProduct } = actionDispatch(useDispatch());
   const { chosenProduct } = useSelector(chosenProductRetriever);
-  const { libruary} = useSelector(libruaryRetriever);
+  const { libruary } = useSelector(libruaryRetriever);
 
   useEffect(() => {
     const product = new ProductService();
@@ -115,7 +117,22 @@ export default function ChosenProduct() {
               <span>${chosenProduct?.productPrice}</span>
             </div>
             <div className={"button-box"}>
-              <Button variant="contained">Add To Basket</Button>
+              <Button
+                variant="contained"
+                onClick={(e) => {
+                  onAdd({
+                    _id: chosenProduct._id,
+                    quantity: 1,
+                    name: chosenProduct.productName,
+                    price: chosenProduct.productPrice,
+                    image: chosenProduct.productImages[0],
+                  });
+
+                  e.stopPropagation();
+                }}
+              >
+                Add To Basket
+              </Button>
             </div>
           </Box>
         </Stack>

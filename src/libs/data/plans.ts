@@ -31,4 +31,20 @@ export const plans = [
     location: "Uzbekistan",
     img: "/img/Bygone_Days.webp",
   },
+  {
+    title: "Hot Discount Days",
+    desc: "a magical journey of friendship, courage.",
+    author: "Joanne Rowling",
+    date: "2007 year",
+    location: "Great Britain",
+    img: "/img/harry.webp",
+  },
+  {
+    title: "Coming Soon",
+    desc: "✨ Explore introspection, ego, and self-discovery.",
+    author: "Fotih Duman",
+    date: "2000 year",
+    location: "Turkey, Istambul",
+    img: "/img/men.webp",
+  },
 ];

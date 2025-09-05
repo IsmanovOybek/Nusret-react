@@ -15,6 +15,11 @@ import ProductService from "../../services/ProductService";
 import MemberService from "../../services/MemberService";
 import { Product } from "../../../libs/types/product";
 import { Member } from "../../../libs/types/member";
+import { CartItem } from "../../../libs/types/search";
+
+interface HomePageProps {
+  onAdd: (item: CartItem) => void;
+}
 
 // redux slice vs selector
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -23,7 +28,8 @@ const actionDispatch = (dispatch: Dispatch) => ({
   setReaderRankings: (data: Member[]) => dispatch(setReaderRankings(data)),
 });
 
-export default function HomePage() {
+export default function HomePage(props: HomePageProps) {
+  const { onAdd } = props;
   const { setNewBooks, setpopularBooks, setReaderRankings } = actionDispatch(
     useDispatch()
   );
@@ -69,7 +75,7 @@ export default function HomePage() {
     <div className={"homepage"}>
       <NewBooks />
       <Statistics />
-      <PopularBooks />
+      <PopularBooks onAdd={onAdd} />
       <Advertisement />
       <ActiveUsers />
       <Events />

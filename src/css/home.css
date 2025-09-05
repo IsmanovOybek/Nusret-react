@@ -40,6 +40,14 @@
   width: 290px;
   cursor: pointer;
 }
+.homepage .new-products-frame .main .card .shop-btn{
+  background-color: #343434;
+  width: 20px;
+  height: 25px;
+  margin-left: 230px;
+  
+  
+}
 
 .homepage .new-products-frame .product-sale2 {
   position: absolute;
@@ -179,9 +187,7 @@
   flex-direction: column;
   align-items: center;
 }
-.homepage .popular-dishes-frame .popular-section .yulduz {
-  color: #ffd700;
-}
+
 .homepage .popular-dishes-frame .popular-section .category-title {
   text-align: center;
   font-family: "Roboto Serif";
@@ -205,6 +211,15 @@
   min-height: 430px;
   min-width: 300px;
   cursor: pointer;
+}
+
+.homepage .popular-dishes-frame .cards-frame .shop-btn{
+  background: none;
+  opacity: 0;
+}
+.homepage .popular-dishes-frame .cards-frame .shop-btn:hover{
+  background:#646a74;
+  opacity: 1;
 }
 
 .homepage .popular-dishes-frame .cards-frame .card .card-cover {

@@ -9,6 +9,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "./MaterialTheme";
 import CssBaseline from "@mui/material/CssBaseline";
 import { BrowserRouter as Router } from "react-router-dom";
+import CursorFollower from "./app/cursor";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -19,7 +20,10 @@ root.render(
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Router>
-          <App />
+          <CursorFollower>
+            {" "}
+            <App />
+          </CursorFollower>
         </Router>
       </ThemeProvider>
     </Provider>

@@ -8,12 +8,14 @@ import { CssVarsProvider } from "@mui/joy/styles";
 import CardOverflow from "@mui/joy/CardOverflow";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
+import Button from "@mui/joy/Button";
 
 import { createSelector } from "reselect";
 import { retrievePopularBooks } from "./selector";
 import { useSelector } from "react-redux";
 import { Product } from "../../../libs/types/product";
 import { serverApi } from "../../../libs/config";
+import { CartItem } from "../../../libs/types/search";
 
 const popularBooksRetriever = createSelector(
   retrievePopularBooks,
@@ -22,7 +24,12 @@ const popularBooksRetriever = createSelector(
   })
 );
 
-export default function PopularBooks() {
+interface PopularBooksProps {
+  onAdd: (item: CartItem) => void;
+}
+
+export default function PopularBooks(props: PopularBooksProps) {
+  const { onAdd } = props;
   const { popularBooks } = useSelector(popularBooksRetriever);
   return (
     <div className="popular-dishes-frame">
@@ -39,6 +46,7 @@ export default function PopularBooks() {
                       <CardCover>
                         <img src={imagePath} alt="" />
                       </CardCover>
+
                       <CardCover className={"card-cover"} />
                       <CardContent sx={{ justifyContent: "flex-end" }}>
                         <Stack
@@ -53,6 +61,25 @@ export default function PopularBooks() {
                           >
                             {product.productName}
                           </Typography>
+                          <Button
+                            className="shop-btn"
+                            onClick={(e) => {
+                              onAdd({
+                                _id: product._id,
+                                quantity: 1,
+                                name: product.productName,
+                                price: product.productPrice,
+                                image: product.productImages[0],
+                              });
+
+                              e.stopPropagation();
+                            }}
+                          >
+                            <img
+                              className="shop-btn-img"
+                              src="/icons/shopping-cart.svg"
+                            />
+                          </Button>
                           <Typography
                             sx={{
                               fontWeight: "md",

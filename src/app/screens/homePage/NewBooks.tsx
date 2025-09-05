@@ -7,20 +7,29 @@ import Card from "@mui/joy/Card";
 import Typography from "@mui/joy/Typography";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import Divider from "../../components/divider";
-
+import Button from "@mui/joy/Button";
 import { createSelector } from "reselect";
 import { retrieveNewBooks } from "./selector";
 import { useSelector } from "react-redux";
 import { Product } from "../../../libs/types/product";
 import { serverApi } from "../../../libs/config";
 import { ProductCollection } from "../../../libs/enums/product.enum";
+import { useHistory } from "react-router-dom";
+
+
 
 const newBooksRetriever = createSelector(retrieveNewBooks, (newBooks) => ({
-  newBooks
+  newBooks,
 }));
 
 export default function NewBooks() {
-  const {newBooks} = useSelector(newBooksRetriever)
+  const history = useHistory();
+  const { newBooks } = useSelector(newBooksRetriever);
+
+  const chooseDishHandler = (id: string) => {
+    history.push(`/products/${id}`);
+  };
+
   return (
     <div className={"new-products-frame"}>
       <Container>
@@ -32,13 +41,19 @@ export default function NewBooks() {
                 newBooks.map((product: Product) => {
                   const imagePath = `${serverApi}/${product.productImages[0]}`;
                   const sizeVolume =
-                  product.productCollection === ProductCollection.HISTORY
-                    ? product.productVolume
-                    : product.productSize ;
+                    product.productCollection === ProductCollection.HISTORY
+                      ? product.productVolume
+                      : product.productSize;
                   return (
-                    <Card key={product._id} variant="outlined" className={"card"}>
+                    <Card
+                      key={product._id}
+                      variant="outlined"
+                      className={"card"}
+                      onClick={() => chooseDishHandler(product._id)}
+                    >
                       <CardOverflow className="product-sale1">
                         <div className="product-sale2">{sizeVolume}</div>
+
                         <AspectRatio ratio="1">
                           <img src={imagePath} alt="" />
                         </AspectRatio>
@@ -51,11 +66,13 @@ export default function NewBooks() {
                               {product.productName}
                             </Typography>
                             <Divider width="2" height="24" bg="#d9d9d9" />
-                            <Typography className="price">${product.productPrice}</Typography>
+                            <Typography className="price">
+                              ${product.productPrice}
+                            </Typography>
                           </Stack>
                           <Stack>
                             <Typography className="views">
-                            {product.productViews}
+                              {product.productViews}
                               <VisibilityIcon
                                 sx={{ fontSize: 20, marginLeft: "5px" }}
                               />
