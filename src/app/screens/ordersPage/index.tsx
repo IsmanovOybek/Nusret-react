@@ -16,6 +16,7 @@ import { useGlobals } from "../../hooks/useGlobals";
 import { OrderStatus } from "../../../libs/enums/order.enum";
 import OrderService from "../../services/OrderService";
 import { useHistory } from "react-router-dom";
+import { serverApi } from "../../../libs/config";
 
 // redux slice vs selector
 const actionDispatch = (dispatch: Dispatch) => ({
@@ -121,7 +122,11 @@ const OrdersPage = () => {
               <div className="order-user-img">
                 <div className="order-user-img1">
                   <img
-                    src="/img/img.jpeg"
+                    src={
+                      authMember?.memberImage
+                        ? `${serverApi}/${authMember.memberImage}`
+                        : "/icons/default-user.svg"
+                    }
                     className="order-user-avatar"
                     alt="User avatar"
                   />
@@ -136,13 +141,18 @@ const OrdersPage = () => {
                   </div>
                 </div>
                 <Box className="liner">
-                  <span className="order-user-name">Senior Kyler </span> <br />
-                  <span className="order-user-prof">USER</span>
+                  <span className="order-user-name">
+                    {authMember?.memberNick}{" "}
+                  </span>{" "}
+                  <br />
+                  <span className="order-user-prof">
+                    {authMember?.memberType}
+                  </span>
                 </Box>{" "}
                 <hr className="horizantal" />
                 <Box className="order-user-location">
                   <LocationOnIcon sx={{ marginTop: "10px" }} />
-                  <p> South Korea, Jeonju</p>
+                  <p> {authMember?.memberAddress}</p>
                 </Box>
               </div>
 

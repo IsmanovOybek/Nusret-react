@@ -57,7 +57,7 @@ export function HomeNavbar(props: HomeNavbarProps) {
               <img
                 style={{
                   width: "150px",
-                  height: "34px",
+                  height: "36px",
                   borderRadius: "5px 0px 0px 5px",
                   marginTop: "7px",
                 }}
@@ -116,9 +116,8 @@ export function HomeNavbar(props: HomeNavbarProps) {
               </Box>
             ) : (
               <img
+                className="user-avatar"
                 aria-haspopup={"true"}
-                width={"34px"}
-                height={"35px"}
                 src={
                   authMember?.memberImage
                     ? `${serverApi}/${authMember?.memberImage}`
