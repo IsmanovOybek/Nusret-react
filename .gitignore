@@ -4,9 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-src/
-!src/config.ts
-public/
 
 # testing
 /coverage
@@ -24,3 +21,7 @@ public/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+bigfile.zip
+bigfile.zip
+bigfile.zip
+nusret.mp4
