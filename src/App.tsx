@@ -53,8 +53,10 @@ function App() {
       sweetErrorHandling(Messages.error1);
     }
   };
+
   return (
     <>
+    
       {location.pathname === "/" ? (
         <HomeNavbar
           cartItems={cartItems}
@@ -84,7 +86,7 @@ function App() {
           handleLogoutRequest={handleLogoutRequest}
         />
       )}
-
+      
       <Switch>
         <Route path="/products">
           <ProductsPage onAdd={onAdd} />
@@ -98,7 +100,7 @@ function App() {
         <Route path="/help">
           <HelpPage />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <HomePage onAdd={onAdd} />
         </Route>
       </Switch>

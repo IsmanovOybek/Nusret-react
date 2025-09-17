@@ -7,7 +7,7 @@ const Footers = styled.div`
   width: 100%;
   height: 590px;
   display: flex;
-  background:rgb(102, 97, 97);
+  background: rgb(102, 97, 97);
   background-size: cover;
 `;
 
@@ -16,10 +16,9 @@ export default function Footer() {
 
   return (
     <Footers>
-      <Container>
+      <Container className="footer">
         <Stack flexDirection={"row"} sx={{ mt: "94px" }}>
           <Stack flexDirection={"column"} style={{ width: "340px" }}>
-           
             <Box className={"foot-desc-txt"}>
               By bringing together books and youth, the library aims to revive
               the culture of reading. It may seem quiet from the outside, yet

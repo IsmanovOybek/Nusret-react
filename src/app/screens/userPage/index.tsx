@@ -1,4 +1,4 @@
-import { Box, Container, Stack } from "@mui/material";
+import { Box, Button, Container, Stack } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TelegramIcon from "@mui/icons-material/Telegram";
@@ -14,6 +14,8 @@ export default function UserPage() {
   const history = useHistory();
   const { authMember } = useGlobals();
   if (!authMember) history.push("/");
+  const goAdmin = () =>
+    (window.location.href = "http://localhost:3004/admin/product/all");
 
   return (
     <div className={"user-page"}>
@@ -57,10 +59,10 @@ export default function UserPage() {
                 <span className={"order-user-name"}>
                   {authMember?.memberNick}
                 </span>
-                <span className={"order-user-prof"}>
+                <Button className={"order-user-prof"} onClick={goAdmin}>
                   {authMember?.memberType}
-                </span>
-                <span className={"order-user-prof"}>
+                </Button>
+                <span className={"order-user-prof1"}>
                   {authMember?.memberAddress
                     ? authMember.memberAddress
                     : "no adress"}

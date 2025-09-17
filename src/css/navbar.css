@@ -34,7 +34,7 @@
   justify-content: end;
   gap: 90px;
   width: 1200px;
-  height: 36px;
+  height: 56px;
 }
 
 .home-navbar .hover-line:after {
@@ -62,9 +62,11 @@
 }
 
 .home-navbar .login-button {
-  height: 36px;
+  width: 110px;
+  height: 56px;
   background-color: #45a24d;
   color: #f4ecec;
+  border-radius: 0px,5px,5px 0px;
 }
 
 .home-navbar .detail {
@@ -138,9 +140,9 @@
 }
 
 .home-navbar .user-avatar {
-  width: 55px;
-  height: 40px;
-  border-radius: 24px;
+  width: 75px;
+  height: 60px;
+  border-radius: 15px;
   margin: 10px;
 }
 
@@ -182,19 +184,20 @@
   justify-content: end;
   gap: 90px;
   width: 1200px;
-  height: 36px;
+  height: 56px;
 }
 
 .other-navbar .navbar-container .menu .links .login-button {
   background-color: #45a24d;
   color: #f0ece5;
-  height: 36px;
+  height: 56px;
+  width: 110px;
 }
 
 .other-navbar .navbar-container .menu .user-avatar {
-  width: 55px;
-  height: 40px;
-  border-radius: 24px;
+  width: 75px;
+  height: 60px;
+  border-radius: 15px;
   margin: 10px;
 }
 

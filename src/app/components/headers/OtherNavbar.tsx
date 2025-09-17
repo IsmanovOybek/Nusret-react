@@ -53,7 +53,7 @@ export function OtherNavbar(props: OtherNavbarProps) {
               <img
                 style={{
                   width: "150px",
-                  height: "36px",
+                  height: "56px",
                   borderRadius: "5px 0px 0px 5px",
                   marginTop: "7px",
                 }}
@@ -90,6 +90,7 @@ export function OtherNavbar(props: OtherNavbarProps) {
                 Help
               </NavLink>
             </Box>
+
             <Basket
               cartItems={cartItems}
               onAdd={onAdd}

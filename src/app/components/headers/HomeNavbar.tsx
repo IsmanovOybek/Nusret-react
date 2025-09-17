@@ -57,7 +57,7 @@ export function HomeNavbar(props: HomeNavbarProps) {
               <img
                 style={{
                   width: "150px",
-                  height: "36px",
+                  height: "56px",
                   borderRadius: "5px 0px 0px 5px",
                   marginTop: "7px",
                 }}
@@ -95,7 +95,8 @@ export function HomeNavbar(props: HomeNavbarProps) {
               <NavLink to="/help" activeClassName={"underline"}>
                 Help
               </NavLink>
-            </Box>
+              </Box>
+              
             <Basket
               cartItems={cartItems}
               onAdd={onAdd}

@@ -140,7 +140,8 @@
 	font-weight: 500;
 	font-size: 20px;
 	line-height: 36px;
-	color: #a1a1a1;
+	color: #0e0c0c;
+	background: rgb(238, 91, 91);
 }
 
 .user-page .order-info-box .user-media-box {
