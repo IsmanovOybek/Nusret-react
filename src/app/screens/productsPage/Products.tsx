@@ -329,11 +329,27 @@ export default function Products(props: ProductProps) {
                   slots={{ previous: ArrowBackIcon, next: ArrowForwardIcon }}
                   {...item}
                   sx={{
+                    fontSize: "16px",
+                    fontWeight: 600,
+                    color: "#2c3e50",
+                    border: "2px solid transparent",
+                    borderRadius: "12px",
+                    margin: "0 4px",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      backgroundColor: "rgba(0, 137, 123, 0.1)",
+                      borderColor: "#00897b",
+                      transform: "translateY(-2px)",
+                    },
                     "&.Mui-selected": {
-                      backgroundColor: "red",
+                      backgroundColor: "#00897b",
                       color: "white",
+                      borderColor: "#00897b",
+                      boxShadow: "0 4px 12px rgba(0, 137, 123, 0.3)",
                       "&:hover": {
-                        backgroundColor: "#cc0000",
+                        backgroundColor: "#00695c",
+                        borderColor: "#00695c",
+                        boxShadow: "0 6px 16px rgba(0, 137, 123, 0.4)",
                       },
                     },
                   }}

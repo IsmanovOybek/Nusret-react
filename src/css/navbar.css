@@ -168,10 +168,21 @@
 }
 
 .home-navbar .user-avatar {
-  width: 75px;
-  height: 60px;
-  border-radius: 15px;
-  margin: 10px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%; /* Dumaloq qilish */
+  margin: 0;
+  object-fit: cover;
+  cursor: pointer;
+  border: 3px solid #00897b; /* Teal border */
+  box-shadow: 0 4px 12px rgba(0, 137, 123, 0.3);
+  transition: all 0.3s ease;
+}
+
+.home-navbar .user-avatar:hover {
+  transform: scale(1.1);
+  border-color: #00695c; /* Darker teal on hover */
+  box-shadow: 0 6px 16px rgba(0, 137, 123, 0.5);
 }
 
 /* other navbar */
@@ -236,10 +247,21 @@
 }
 
 .other-navbar .navbar-container .menu .user-avatar {
-  width: 75px;
-  height: 60px;
-  border-radius: 15px;
-  margin: 10px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%; /* Dumaloq qilish */
+  margin: 0;
+  object-fit: cover;
+  cursor: pointer;
+  border: 3px solid #00897b; /* Teal border */
+  box-shadow: 0 4px 12px rgba(0, 137, 123, 0.3);
+  transition: all 0.3s ease;
+}
+
+.other-navbar .navbar-container .menu .user-avatar:hover {
+  transform: scale(1.1);
+  border-color: #00695c; /* Darker teal on hover */
+  box-shadow: 0 6px 16px rgba(0, 137, 123, 0.5);
 }
 
 .other-navbar a {
