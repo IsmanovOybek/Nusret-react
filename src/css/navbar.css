@@ -2,13 +2,8 @@
   width: 100%;
   height: 700px;
   display: flex;
-  background-image: url("/public/img/or.PNG");
-  background-size: cover;
-  /* background: linear-gradient(90deg, #9aa1a8, #eaeaea); */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* agar parallax effekt kerak bo‘lsa */
-  overflow: hidden; /* fon elementlari tashqariga chiqmasligi uchun */
+  position: relative;
+  overflow: hidden;
 }
 
 .home-navbar a {
@@ -185,10 +180,8 @@
   width: 100%;
   height: 400px;
   display: flex;
-  background-image: url("/public/img/or.PNG");
-
-  /* background-size: cover;  */
-  /* background: linear-gradient(90deg, #9aa1a8, #eaeaea); */
+  position: relative;
+  overflow: hidden;
 }
 
 .other-navbar .navbar-container {

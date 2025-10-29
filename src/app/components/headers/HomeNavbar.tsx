@@ -45,6 +45,23 @@ export function HomeNavbar(props: HomeNavbarProps) {
   const { authMember } = useGlobals();
   return (
     <div className="home-navbar">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          zIndex: -1,
+        }}
+      >
+        <source src="/video/navbar.mp4" type="video/mp4" />
+      </video>
       <Container sx={{ mt: "55px", height: "642px" }}>
         <Stack
           sx={{ height: "50px" }}

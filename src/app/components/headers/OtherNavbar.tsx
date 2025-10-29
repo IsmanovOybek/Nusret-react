@@ -46,6 +46,23 @@ export function OtherNavbar(props: OtherNavbarProps) {
   const { authMember } = useGlobals();
   return (
     <div className="other-navbar">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "400px",
+          objectFit: "cover",
+          zIndex: -1,
+        }}
+      >
+        <source src="/video/navbar.mp4" type="video/mp4" />
+      </video>
       <Container className="navbar-container">
         <Stack className="menu">
           <Box>
