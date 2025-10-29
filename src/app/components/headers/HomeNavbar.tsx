@@ -52,20 +52,6 @@ export function HomeNavbar(props: HomeNavbarProps) {
           justifyContent={"start"}
           alignItems={"center"}
         >
-          <Box>
-            <NavLink to="/">
-              <img
-                style={{
-                  width: "150px",
-                  height: "56px",
-                  borderRadius: "5px 0px 0px 5px",
-                  marginTop: "7px",
-                }}
-                src="/icons/bannerr.webp"
-              />
-            </NavLink>
-          </Box>
-
           <Stack className="hover-liner">
             <Box className={"hover-line"}>
               <NavLink to="/" activeClassName={"underline"}>
@@ -95,8 +81,8 @@ export function HomeNavbar(props: HomeNavbarProps) {
               <NavLink to="/help" activeClassName={"underline"}>
                 Help
               </NavLink>
-              </Box>
-              
+            </Box>
+
             <Basket
               cartItems={cartItems}
               onAdd={onAdd}
@@ -137,7 +123,7 @@ export function HomeNavbar(props: HomeNavbarProps) {
                 elevation: 0,
                 sx: {
                   overflow: "visible",
-                  filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                  filter: "drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.32))",
                   mt: 1.5,
                   "& .MuiAvatar-root": {
                     width: 32,

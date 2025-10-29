@@ -1,7 +1,7 @@
 .products {
   width: 100%;
   height: auto;
-  background: #dbdbde;
+  background: #ffffff;
 }
 
 .products .avatar-big-box {
@@ -23,7 +23,7 @@
   font-weight: 600;
   line-height: 42px;
   letter-spacing: 0%;
-  color: rgb(52, 52, 52);
+  color: #00897b; /* Teal color */
 }
 
 .products .avatar-big-box .product-type {
@@ -190,11 +190,7 @@
   text-align: center;
 }
 
-.products
-  .product-wrapper
-  .product-card
-  .product-desc
-  .product-title {
+.products .product-wrapper .product-card .product-desc .product-title {
   font-family: Poppins;
   font-size: 20px;
   font-weight: 600;
@@ -202,11 +198,10 @@
   letter-spacing: 0%;
   color: rgb(52, 52, 52);
 }
-.products  .product-wrapper .product-card .product-desck {
+.products .product-wrapper .product-card .product-desck {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   text-align: center;
-  
 }
 .products
   .list-category-section
@@ -220,8 +215,6 @@
   font-weight: 600;
   line-height: 36px;
   letter-spacing: 0%;
-  
-  
 }
 
 .products .list-category-section .product-wrapper .no-data {
@@ -245,7 +238,25 @@
   width: 100%;
   height: 630px;
   margin-top: 53px;
-  background: rgb(167, 169, 170);
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8dcc8 20%, #faf8f3 100%);
+  position: relative;
+}
+
+.products .brands-logo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="service-pattern" width="50" height="50" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="2" height="50" fill="rgba(0,137,123,0.03)"/><rect x="0" y="0" width="50" height="2" fill="rgba(0,137,123,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23service-pattern)"/></svg>');
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.products .brands-logo > * {
+  position: relative;
+  z-index: 1;
 }
 
 .products .brands-logo .sub {
@@ -258,13 +269,21 @@
   justify-content: center;
   align-items: center;
   margin-top: 84px;
-  font-family: Roboto;
-  font-size: 36px;
+  font-family: "Roboto Serif", serif;
+  font-size: 42px;
   font-weight: 700;
-  line-height: 42px;
+  line-height: 47px;
   letter-spacing: 0%;
-  color: rgb(227, 192, 141);
+  color: #00897b; /* Teal color */
   width: 310px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.products .brands-logo .subtitle::after {
+  content: "🛎️";
+  margin-left: 12px;
+  font-size: 36px;
 }
 
 .products .brands-logo .brand-imgs {
@@ -279,15 +298,44 @@
   width: 300px;
   height: 360px;
   border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  border: 1px solid rgba(0, 137, 123, 0.1);
+}
 
-  box-shadow: 0px 0px 22px 0px rgb(228, 212, 212);
-  background: rgb(13, 21, 24);
+.products .brands-logo .brand-imgs .brand-img:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0, 137, 123, 0.25);
+  border: 1px solid rgba(0, 137, 123, 0.3);
+}
+
+.products .brands-logo .brand-imgs .brand-img img {
+  width: 100%;
+  height: calc(100% - 56px);
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.products .brands-logo .brand-imgs .brand-img:hover img {
+  transform: scale(1.08);
 }
 .products .brands-logo .brand-imgs .brand-img .span_title {
-  color: #f8f8ff;
-  background-color: #979797;
+  color: #ffffff;
+  background: linear-gradient(135deg, #00897b 0%, #00695c 100%);
   text-align: center;
-  border-radius: 20px;
+  padding: 12px 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 0 0 20px 20px;
+  transition: all 0.3s ease;
+}
+
+.products .brands-logo .brand-imgs .brand-img:hover .span_title {
+  background: linear-gradient(135deg, #00695c 0%, #004d40 100%);
 }
 /* ADDRESS */
 .products .address {
@@ -307,7 +355,7 @@
   font-weight: 600;
   line-height: 42px;
   letter-spacing: 0%;
-  color: rgb(52, 52, 52);
+  color: #00897b; /* Teal color */
 }
 
 /** ChosenProduct **/

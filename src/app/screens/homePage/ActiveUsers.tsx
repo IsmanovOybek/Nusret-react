@@ -1,8 +1,6 @@
 import { Box, Container, Stack } from "@mui/material";
 import Card from "@mui/joy/Card";
-import { CardOverflow, CssVarsProvider, Typography } from "@mui/joy";
-import Divider from "../../components/divider";
-import AspectRatio from "@mui/joy/AspectRatio";
+import { CssVarsProvider, Typography } from "@mui/joy";
 
 import { createSelector } from "reselect";
 import { retrievereaderRankings } from "./selector";
@@ -34,20 +32,12 @@ export default function ActiveUsers() {
                   const imagePath = `${serverApi}/${member.memberImage}`;
                   return (
                     <Card variant="outlined" className="card" key={member._id}>
-                      <CardOverflow>
-                        <AspectRatio ratio="1">
-                          <img src={imagePath} alt={member.memberNick} />
-                        </AspectRatio>
-                      </CardOverflow>
-                      <CardOverflow variant="soft" className="member-nickname">
-                        <Typography>
+                      <img src={imagePath} alt={member.memberNick} />
+                      <Box className="member-nickname">
+                        <Typography className="member-name">
                           {member.memberNick}
-                          <span className="numberof">50+</span>
                         </Typography>
-                      </CardOverflow>
-                      <Stack>
-                        <Divider />
-                      </Stack>
+                      </Box>
                     </Card>
                   );
                 })

@@ -18,6 +18,8 @@ import OrderService from "../../services/OrderService";
 import { useHistory } from "react-router-dom";
 import { serverApi } from "../../../libs/config";
 
+
+
 // redux slice vs selector
 const actionDispatch = (dispatch: Dispatch) => ({
   setPausedOrders: (data: Order[]) => dispatch(setPausedOrders(data)),
@@ -109,7 +111,7 @@ const OrdersPage = () => {
               <Stack className="order-main-content">
                 <PausedOrders setValue={setValue} />
                 <ProcessOrders setValue={setValue} />
-                <FinishedOrders />
+                <FinishedOrders  />
               </Stack>
             </Box>
           </TabContext>

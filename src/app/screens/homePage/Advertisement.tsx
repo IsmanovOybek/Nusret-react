@@ -10,7 +10,7 @@ export default function Advertisement() {
                 playsInline
                 data-video-media=""
             >
-                <source type="video/mp4" src="video/mm.mp4" />
+                <source type="video/mp4" src="video/home.mp4" />
             </video>
         </div>
     )

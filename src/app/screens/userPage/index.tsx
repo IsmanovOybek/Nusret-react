@@ -14,8 +14,6 @@ export default function UserPage() {
   const history = useHistory();
   const { authMember } = useGlobals();
   if (!authMember) history.push("/");
-  const goAdmin = () =>
-    (window.location.href = "http://localhost:3004/admin/product/all");
 
   return (
     <div className={"user-page"}>
@@ -59,9 +57,7 @@ export default function UserPage() {
                 <span className={"order-user-name"}>
                   {authMember?.memberNick}
                 </span>
-                <Button className={"order-user-prof"} onClick={goAdmin}>
-                  {authMember?.memberType}
-                </Button>
+                {authMember?.memberType}
                 <span className={"order-user-prof1"}>
                   {authMember?.memberAddress
                     ? authMember.memberAddress

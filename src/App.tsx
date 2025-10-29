@@ -56,7 +56,6 @@ function App() {
 
   return (
     <>
-    
       {location.pathname === "/" ? (
         <HomeNavbar
           cartItems={cartItems}
@@ -86,7 +85,7 @@ function App() {
           handleLogoutRequest={handleLogoutRequest}
         />
       )}
-      
+
       <Switch>
         <Route path="/products">
           <ProductsPage onAdd={onAdd} />

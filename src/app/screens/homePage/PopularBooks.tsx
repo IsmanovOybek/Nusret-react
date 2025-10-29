@@ -16,6 +16,7 @@ import { useSelector } from "react-redux";
 import { Product } from "../../../libs/types/product";
 import { serverApi } from "../../../libs/config";
 import { CartItem } from "../../../libs/types/search";
+import { Bolt } from "@mui/icons-material";
 
 const popularBooksRetriever = createSelector(
   retrievePopularBooks,
@@ -82,10 +83,17 @@ export default function PopularBooks(props: PopularBooksProps) {
                           </Button>
                           <Typography
                             sx={{
-                              fontWeight: "md",
-                              color: "neutral.300",
-                              alignItems: "center",
+                              fontWeight: 600,
+                              color: "transparent",
+                              backgroundImage:
+                                "linear-gradient(90deg,rgb(5, 3, 0),rgb(17, 11, 1))",
+                              backgroundClip: "text",
+                              WebkitBackgroundClip: "text",
                               display: "flex",
+                              alignItems: "center",
+                              fontSize: "19px",
+                              letterSpacing: "0.5px",
+                              textShadow: "0 1px 2px rgba(0,0,0,0.2)",
                             }}
                           >
                             {product.productViews}
@@ -107,8 +115,17 @@ export default function PopularBooks(props: PopularBooksProps) {
                         }}
                       >
                         <Typography
-                          startDecorator={<DescriptionOutlinedIcon />}
-                          textColor="neutral.300"
+                          startDecorator={
+                            <DescriptionOutlinedIcon sx={{ color: "#000" }} />
+                          }
+                          sx={{
+                            color: "#000", // qora matn rangi
+                            fontWeight: 700,
+                            fontFamily: "Poppins, sans-serif",
+                            fontSize: "15px",
+                            lineHeight: 1.4,
+                            letterSpacing: "0.3px",
+                          }}
                         >
                           {product.productDesc}
                         </Typography>

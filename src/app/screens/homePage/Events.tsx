@@ -15,9 +15,11 @@ export default function Events() {
 
         <Swiper
           className={"events-info swiper-wrapper"}
-          slidesPerView={"auto"}
-          centeredSlides={true}
+          slidesPerView={4}
+          slidesPerGroup={2}
           spaceBetween={30}
+          loop={true}
+          speed={800}
           navigation={{
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
@@ -27,39 +29,66 @@ export default function Events() {
             clickable: true,
           }}
           autoplay={{
-            delay: 2000,
-            disableOnInteraction: true,
+            delay: 3500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              slidesPerGroup: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              slidesPerGroup: 1,
+              spaceBetween: 25,
+            },
+            1024: {
+              slidesPerView: 3,
+              slidesPerGroup: 2,
+              spaceBetween: 30,
+            },
+            1280: {
+              slidesPerView: 4,
+              slidesPerGroup: 2,
+              spaceBetween: 30,
+            },
           }}
         >
           {plans.map((value, number) => {
             return (
               <SwiperSlide key={number} className={"events-info-frame"}>
-                <div className={"events-img"}>
-                  <img src={value.img} className={"events-img"} />
-                </div>
-                <Box className={"events-desc"}>
-                  <Box className={"events-bott"}>
-                    <Box className={"bott-left"}>
-                      <div className={"event-title-speaker"}>
-                        <strong>{value.title}</strong>
-                        <div className={"event-organizator"}>
-                          <img src={"/icons/writter_icon.ico"} />
-                          <p className={"spec-text-author"}>{value.author}</p>
-                        </div>
-                      </div>
+                <Box className={"modern-event-card"}>
+                  <Box className={"event-image-wrapper"}>
+                    <img
+                      src={value.img}
+                      alt={value.title}
+                      className={"event-image"}
+                    />
+                    <Box className={"image-overlay"}></Box>
+                  </Box>
 
-                      <p className={"text-desc"}> {value.desc} </p>
+                  <Box className={"event-content"}>
+                    <Box className={"event-header"}>
+                      <h3 className={"event-title"}>{value.title}</h3>
+                      <Box className={"event-author"}>
+                        <img src={"/icons/writter_icon.ico"} alt="author" />
+                        <span>{value.author}</span>
+                      </Box>
+                    </Box>
 
-                      <div className={"bott-info"}>
-                        <div className={"bott-info-main"}>
-                          <img src={"/icons/calendar.svg"} />
-                          {value.date}
-                        </div>
-                        <div className={"bott-info-main"}>
-                          <img src={"/icons/location.svg"} />
-                          {value.location}
-                        </div>
-                      </div>
+                    <p className={"event-description"}>{value.desc}</p>
+
+                    <Box className={"event-footer"}>
+                      <Box className={"event-meta"}>
+                        <img src={"/icons/calendar.svg"} alt="date" />
+                        <span>{value.date}</span>
+                      </Box>
+                      <Box className={"event-meta"}>
+                        <img src={"/icons/location.svg"} alt="location" />
+                        <span>{value.location}</span>
+                      </Box>
                     </Box>
                   </Box>
                 </Box>

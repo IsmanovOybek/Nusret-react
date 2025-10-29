@@ -50,7 +50,7 @@ export function OtherNavbar(props: OtherNavbarProps) {
         <Stack className="menu">
           <Box>
             <NavLink to="/">
-              <img
+              {/* <img
                 style={{
                   width: "150px",
                   height: "56px",
@@ -58,7 +58,7 @@ export function OtherNavbar(props: OtherNavbarProps) {
                   marginTop: "7px",
                 }}
                 src="/icons/bannerr.webp"
-              />
+              /> */}
             </NavLink>
           </Box>
 
