@@ -11,6 +11,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { BrowserRouter as Router } from "react-router-dom";
 import CursorFollower from "./app/cursor";
 import ContextProvider from "./app/context/ContextProvider";
+import { Socket } from "dgram";
+import { SocketProvider } from "./app/context/SocketContext";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -19,6 +21,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <ContextProvider>
+        <SocketProvider>
         {" "}
         <ThemeProvider theme={theme}>
           <CssBaseline />
@@ -29,6 +32,7 @@ root.render(
             </CursorFollower>
           </Router>
         </ThemeProvider>
+        </SocketProvider>
       </ContextProvider>
     </Provider>
   </React.StrictMode>
